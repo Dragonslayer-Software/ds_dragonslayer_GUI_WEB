@@ -62,7 +62,7 @@ table {
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Larger shadow on hover */
     }
 	.h-50 {
-  height: 80% !important;
+  height: 75% !important;
 }
 </style>
 </head>
