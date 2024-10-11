@@ -30,6 +30,25 @@ String buyerName = request.getParameter("buyerName");
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  <style>
+  .card {
+      
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: left;
+      cursor: grab;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Card shadow */
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Larger shadow on hover */
+    }
+	.card.card-profile-bottom {
+  margin-top: 2rem;
+}
+  </style>
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -88,27 +107,7 @@ String buyerName = request.getParameter("buyerName");
           </ol>
           <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
         </nav>
-        <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here...">
-            </div>
-          </div>
-          <ul class="navbar-nav justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a href="sign-in.jsp" class="nav-link text-white font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign out</span>
-              </a>
-            </li>
-           
-       
-            
-              </ul>
-            </li>
-          </ul>
-        </div>
+      
       </div>
     </nav>
     <!-- End Navbar -->
@@ -116,9 +115,10 @@ String buyerName = request.getParameter("buyerName");
       <div class="card-body p-3">
         <div class="row gx-4">
           <div class="col-auto">
-            <div class="avatar avatar-xl position-relative">
-              <img src="guy.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+            <div class="avatar avatar-xl position-relative shadow-lg">
+              <img src="https://www.w3schools.com/howto/img_avatar.png" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
+			
           </div>
           <div class="col-auto my-auto">
             <div class="h-100">
@@ -159,7 +159,7 @@ String buyerName = request.getParameter("buyerName");
     </div>
     <div class="container-fluid py-4">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-header pb-0">
               <div class="d-flex align-items-center">
@@ -167,31 +167,38 @@ String buyerName = request.getParameter("buyerName");
                 <button class="btn btn-primary btn-sm ms-auto">Settings</button>
               </div>
             </div>
+			<form action="#">
             <div class="card-body">
               <p class="text-uppercase text-sm">User Information</p>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Username</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" id="userName" name="userName" placeholder="Username" value="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Email address</label>
-                    <input class="form-control" type="email" value="">
+                    <input class="form-control" type="email" id="email" name="email" placeholder="Email Address" value="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">First name</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="First Name"value="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Last name</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Last Name" value="">
+                  </div>
+                </div>
+				 <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Mobile Phone</label>
+                    <input class="form-control" type="tel" id="mobile" name="mobile" placeholder="Mobile Number" value="">
                   </div>
                 </div>
               </div>
@@ -201,95 +208,56 @@ String buyerName = request.getParameter("buyerName");
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Address</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" id="address" name="address" placeholder="Street Address" value="">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">City</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" id="city" name="city" placeholder="City" value="">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Country</label>
-                    <input class="form-control" type="text" value="United States">
+                    <label for="example-text-input" class="form-control-label">State</label>
+                    <input class="form-control" type="text" id="state" name="state"  placeholder="WV" value="">
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Postal code</label>
-                    <input class="form-control" type="text" value="">
+                    <input class="form-control" type="text" id="zip" name="zip" placeholder="Postal Code" value="">
+                  </div>
+                </div>
+				 <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Country</label>
+                    <input class="form-control" type="text" id="country" name="country"  value="United States">
                   </div>
                 </div>
               </div>
               <hr class="horizontal dark">
-              <p class="text-uppercase text-sm">About me</p>
+              <p class="text-uppercase text-sm">About Me</p>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">About me</label>
-                    <input class="form-control" type="text" value="">
+                    
+                    <input class="form-control" type="text" id="bio" name="bio" placeholder="Bio" value="">
+                  </div>
+                </div>
+              </div>
+			  <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                   <button class="btn btn-primary btn-sm ms-auto" style="float:right">Save</button>
                   </div>
                 </div>
               </div>
             </div>
+			</form>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card card-profile">
-            <img src="guy.jpg" alt="Image placeholder" class="card-img-top">
-            <div class="row justify-content-center">
-              <div class="col-4 col-lg-4 order-lg-2">
-                <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                  <a href="javascript:;">
-                    <img src="buyer.jpg" class="rounded-circle img-fluid border border-2 border-white">
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
-              <div class="d-flex justify-content-between">
-                <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-none d-lg-block">Connect</a>
-                <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-block d-lg-none"><i class="ni ni-collection"></i></a>
-                <a href="javascript:;" class="btn btn-sm btn-dark float-right mb-0 d-none d-lg-block">Message</a>
-                <a href="javascript:;" class="btn btn-sm btn-dark float-right mb-0 d-block d-lg-none"><i class="ni ni-email-83"></i></a>
-              </div>
-            </div>
-            <div class="card-body pt-0">
-              <div class="row">
-                <div class="col">
-                  <div class="d-flex justify-content-center">
-                    <div class="d-grid text-center">
-                      <span class="text-lg font-weight-bolder">22</span>
-                      <span class="text-sm opacity-8">Friends</span>
-                    </div>
-                    <div class="d-grid text-center mx-4">
-                      <span class="text-lg font-weight-bolder">10</span>
-                      <span class="text-sm opacity-8">Photos</span>
-                    </div>
-                    <div class="d-grid text-center">
-                      <span class="text-lg font-weight-bolder">89</span>
-                      <span class="text-sm opacity-8">Comments</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="text-center mt-4">
-                <h5>
-                  <%=buyerName%><span class="font-weight-light">, 35</span>
-                </h5>
-                <div class="h6 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>United States
-                </div>
-                <div class="h6 mt-4">
-                  <i class="ni business_briefcase-24 mr-2"></i>Buyer
-                </div>
-               
-              </div>
-            </div>
-          </div>
-        </div>
+		
       </div>
       <footer class="footer py-5">
     <div class="container">
