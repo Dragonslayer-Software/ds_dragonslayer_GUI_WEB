@@ -237,9 +237,10 @@ table {
                         <span class="text-secondary text-xs font-weight-bold">Dragon Software</span>
                       </td>
                       <td class="align-middle">
-                        <a href="javascript:;" class="badge badge-sm bg-gradient-primary" data-toggle="tooltip" data-original-title="Edit user">
-                          Download
+                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS" class="badge badge-sm bg-gradient-default" data-toggle="tooltip" data-original-title="download">
+                          <i class="fa fa-paypal fa-2x" style="color:blue" aria-hidden="true"></i>  - Buy
                         </a>
+						
                       </td>
                     </tr>
                       <%
