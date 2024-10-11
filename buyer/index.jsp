@@ -237,8 +237,8 @@ table {
                         <span class="text-secondary text-xs font-weight-bold">Dragon Software</span>
                       </td>
                       <td class="align-middle">
-                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS" class="badge badge-sm bg-gradient-default" data-toggle="tooltip" data-original-title="download">
-                          <i class="fa fa-paypal fa-2x" style="color:blue" aria-hidden="true"></i>  - Buy
+                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS?price="29" class="badge badge-sm bg-gradient-default" data-toggle="tooltip" data-original-title="download">
+                          <img src="paypal.png" width="30px"/>  - Buy
                         </a>
 						
                       </td>
