@@ -61,6 +61,9 @@ table {
     .card:hover {
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Larger shadow on hover */
     }
+	.h-50 {
+  height: 80% !important;
+}
 </style>
 </head>
 
@@ -171,7 +174,7 @@ table {
     <div class="container-fluid py-4">
       <div class="row" id="sortable">
         <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
-            <div class="card z-index-2 ">
+            <div class="card z-index-2 h-100">
             <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fas fa-file" aria-hidden="true"></i> My Software</h6>
              
@@ -193,41 +196,20 @@ table {
                   </thead>
                   <tbody>
 			
-        <%
-		File dir = new File("C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/dragonslayer/seller/pages/uploads/");
-		//File dir = new File("/opt/tomcat/apache-tomcat-9.0.8/webapps/dragonslayer/seller/pages/uploads/");
-
-		String[] files = dir.list();
-
-		for (int i = 0; i < files.length; i++) {
-
-		  String thepath = dir.getPath();
-		  thepath = thepath + "/";
-		  thepath = thepath + files[i];
-
-		  File f = new File(thepath);
-		  long lastmod = f.lastModified();
-
-		  java.util.Date d = new java.util.Date(lastmod);
-		java.text.DateFormat df = new java.text.SimpleDateFormat("dd/MM/yyyy"); 
-            System.out.print(files[i] + " </br>");
-            System.out.print(d+ " </br>");
-            System.out.print(lastmod + "</br>");
-			
-           %>
+     
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><%= files[i]%></h6>
+                            <h6 class="mb-0 text-sm"></h6>
                             <p class="text-xs text-secondary mb-0">Dragon Software</p>
                           </div>
                         </div>
                       </td>
 					
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"><%= df.format(d) %></p>
+                        <p class="text-xs font-weight-bold mb-0"></p>
                        
                       </td>
                       <td class="align-middle text-center text-sm">
@@ -237,19 +219,12 @@ table {
                         <span class="text-secondary text-xs font-weight-bold">Dragon Software</span>
                       </td>
                       <td class="align-middle">
-                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS?price="29" class="badge badge-sm bg-gradient-default" data-toggle="tooltip" data-original-title="download">
-                          <img src="paypal.png" width="30px"/>  - Buy
+                        
                         </a>
 						
                       </td>
                     </tr>
-                      <%
-					   }
-					   // }
-
-            // System.out.println("</uploads>");
-			
-        %> 
+                   
                   </tbody>
                 </table>
 				</div>
@@ -480,49 +455,79 @@ table {
           <div class="card overflow-hidden h-100 p-0">
               <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fas fa-search" aria-hidden="true"></i> Available Software</h6>
-            <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+             <div class="table-responsive p-0 h-50">
+                <table class="table align-items-center mb-0" >
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Seller</th>
+                      <th style="width:250px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                      <th style="width:100px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date Purchased</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Version</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seller</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
+			
+        <%
+		File dir = new File("C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/dragonslayer/seller/pages/uploads/");
+		//File dir = new File("/opt/tomcat/apache-tomcat-9.0.8/webapps/dragonslayer/seller/pages/uploads/");
 
+		String[] files = dir.list();
+
+		for (int i = 0; i < files.length; i++) {
+
+		  String thepath = dir.getPath();
+		  thepath = thepath + "/";
+		  thepath = thepath + files[i];
+
+		  File f = new File(thepath);
+		  long lastmod = f.lastModified();
+
+		  java.util.Date d = new java.util.Date(lastmod);
+		java.text.DateFormat df = new java.text.SimpleDateFormat("dd/MM/yyyy"); 
+            System.out.print(files[i] + " </br>");
+            System.out.print(d+ " </br>");
+            System.out.print(lastmod + "</br>");
+			
+           %>
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Software One</h6>
+                            <h6 class="mb-0 text-sm"><%= files[i]%></h6>
                             <p class="text-xs text-secondary mb-0">Dragon Software</p>
                           </div>
                         </div>
                       </td>
+					
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Dragon Software</p>
+                        <p class="text-xs font-weight-bold mb-0"><%= df.format(d) %></p>
                        
                       </td>
                       <td class="align-middle text-center text-sm">
                         <span class="badge badge-sm bg-gradient-success">0.2</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">$39.99</span>
+                        <span class="text-secondary text-xs font-weight-bold">Dragon Software</span>
                       </td>
                       <td class="align-middle">
-                        <a href="javascript:;" class="badge badge-sm bg-gradient-primary" data-toggle="tooltip" data-original-title="Buy">
-                         Purchase
+                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS?price="29" class="badge badge-sm bg-gradient-default" data-toggle="tooltip" data-original-title="download">
+                          <img src="paypal.png" width="30px"/>  - Buy
                         </a>
+						
                       </td>
                     </tr>
-                    
+                      <%
+					   }
+					   // }
+
+            // System.out.println("</uploads>");
+			
+        %> 
                   </tbody>
                 </table>
-              </div>
+				</div>
             </div>
               </div>  
       </div>
