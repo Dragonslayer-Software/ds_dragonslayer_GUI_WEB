@@ -62,7 +62,11 @@ table {
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Larger shadow on hover */
     }
 	.h-50 {
-  height: 75%;
+  height: 85%;
+}
+  }
+	.h-100 {
+  height: 80%;
 }
 </style>
 </head>
@@ -455,7 +459,7 @@ table {
           <div class="card overflow-hidden h-100 p-0">
               <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fas fa-search" aria-hidden="true"></i> Available Software</h6>
-             <div class="table-responsive p-0 h-50">
+             <div class="table-responsive p-0 ">
                 <table class="table align-items-center mb-0" >
                   <thead>
                     <tr>
