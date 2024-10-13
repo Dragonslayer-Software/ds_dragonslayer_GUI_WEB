@@ -37,6 +37,8 @@ String buyerName = request.getParameter("buyerName");
  <link href="pages/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="pages/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="pages/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+		    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css rel="stylesheet" type="text/css" />
  <style>
 
 
@@ -185,53 +187,39 @@ table {
             </div>
 			
             <div class="card-body p-3 ">
-            					 <button style="float: right;" class="btn btn-primary" id="refresh" onClick="#"><i class="fa fa-refresh" ></i></button>
+            					 <button style="float: right;" class="btn btn-primary btn-sm-0" id="refresh" onClick="#"><i class="fa fa-refresh" ></i></button>
 
-              <div class="table-responsive p-0 h-50">
-                <table class="table align-items-center mb-0" >
-                  <thead>
-                    <tr>
-                      <th style="width:250px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-                      <th style="width:100px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date Purchased</th>
+     <div class="container mt-0">
+    <table id="myDataTable" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date purchased</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Version</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seller</th>
                       <th class="text-secondary opacity-7"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-			
-     
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"></h6>
-                            <p class="text-xs text-secondary mb-0">Dragon Software</p>
-                          </div>
-                        </div>
-                      </td>
-					
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0"></p>
-                       
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">0.2</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">Dragon Software</span>
-                      </td>
-                      <td class="align-middle">
-                        
-                        </a>
-						
-                      </td>
-                    </tr>
-                   
-                  </tbody>
-                </table>
-				</div>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Software One</td>
+    <td>03/02/2024</td>
+    <td>0.1</td>
+	<td>Dragonslayer Software</td>
+	<td><div class="btn btn-default btn-sm-0"><i class="fa fa-download" aria-hidden="true"></i>
+</div></td>
+    </tr>
+	<tr>
+    <td>Software Two</td>
+    <td>03/02/2024</td>
+    <td>0.1</td>
+	<td>Dragonslayer Software</td>
+	<td><div class="btn btn-default btn-sm-0"><i class="fa fa-download" aria-hidden="true"></i>
+</div></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
             
             </div>
           </div>
@@ -246,10 +234,10 @@ table {
             <div class="card-body p-3">
 								 <button style="float: right;" class="btn btn-primary" onClick="window.location.reload();"><i class="fa fa-refresh" ></i></button>
 
-             <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
+              <div class="container mt-0">
+    <table id="myDataTable2" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date Upgraded</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Version</th>
@@ -301,12 +289,13 @@ table {
              
             </div>
             <div class="card-body p-3">
-             <div class="table-responsive p-0">
-			 					 <button style="float: right;" class="btn btn-primary" onClick="window.location.reload();"><i class="fa fa-refresh" ></i></button>
+           
+			 					 <button style="float: right;" class="btn btn-primary" onClick=""><i class="fa fa-plus" ></i></button>
 
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
+                  <div class="container mt-0">
+    <table id="myDataTable3" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Payment Method</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                       
@@ -459,10 +448,10 @@ table {
           <div class="card overflow-hidden h-100 p-0">
               <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fas fa-search" aria-hidden="true"></i> Available Software</h6>
-             <div class="table-responsive p-0 ">
-                <table class="table align-items-center mb-0" >
-                  <thead>
-                    <tr>
+              <div class="container mt-0">
+    <table id="myDataTable4" class="table table-striped table-bordered" style="width:100%;height:60%">
+    <thead>
+    <tr>
                       <th style="width:250px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
                       <th style="width:100px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date Purchased</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Version</th>
@@ -492,7 +481,7 @@ table {
             System.out.print(files[i] + " </br>");
             System.out.print(d+ " </br>");
             System.out.print(lastmod + "</br>");
-			
+			String price = "$29.00";
            %>
                     <tr>
                       <td>
@@ -516,8 +505,8 @@ table {
                         <span class="text-secondary text-xs font-weight-bold">Dragon Software</span>
                       </td>
                       <td class="align-middle">
-                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS?price="29" class="badge badge-sm bg-gradient-default" data-toggle="tooltip" data-original-title="download">
-                          <img src="paypal.png" width="30px"/>  - Buy
+                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS" class="badge badge-sm bg-gradient-default" data-toggle="modal" data-target="#myModal" data-original-title="download">
+                          <img src="paypal.png" width="30px"/>
                         </a>
 						
                       </td>
@@ -642,6 +631,25 @@ table {
     </div>
 
 </div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
   </footer>
 
   <!--   Core JS Files   -->
@@ -782,6 +790,46 @@ window.onclick = function(event) {
 
 <!-- Start of OpenWidget (www.openwidget.com) code -->
 <script>
+    $(document).ready(function() {
+    // Initialize DataTable
+    $('#myDataTable').DataTable({
+    paging: false, // Enable pagination
+    searching: true, // Enable search
+    ordering: true, // Enable sorting
+    info: true, // Show information
+    lengthChange: true, // Disable the "Show X entries" dropdown
+    });
+    });
+	  $(document).ready(function() {
+    // Initialize DataTable
+    $('#myDataTable2').DataTable({
+    paging: false, // Enable pagination
+    searching: true, // Enable search
+    ordering: true, // Enable sorting
+    info: true, // Show information
+    lengthChange: true, // Disable the "Show X entries" dropdown
+    });
+    });
+	  $(document).ready(function() {
+    // Initialize DataTable
+    $('#myDataTable3').DataTable({
+    paging: false, // Enable pagination
+    searching: true, // Enable search
+    ordering: true, // Enable sorting
+    info: true, // Show information
+    lengthChange: false, // Disable the "Show X entries" dropdown
+    });
+    });
+	  $(document).ready(function() {
+    // Initialize DataTable
+    $('#myDataTable4').DataTable({
+    paging: false, // Enable pagination
+    searching: true, // Enable search
+    ordering: true, // Enable sorting
+    info: true, // Show information
+    lengthChange: false, // Disable the "Show X entries" dropdown
+    });
+    });
   window.__ow = window.__ow || {};
   window.__ow.organizationId = "69ac439d-44e8-419b-aac1-4fea9254166c";
   window.__ow.integration_name = "manual_settings";
@@ -791,7 +839,10 @@ window.onclick = function(event) {
 <noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
 <!-- End of OpenWidget code -->
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script
 </body>
 
 </html>
