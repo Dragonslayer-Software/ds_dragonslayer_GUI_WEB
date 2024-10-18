@@ -140,7 +140,7 @@ table {
 	
 	
         <li class="nav-item">
-          <a class="nav-link " href="pages/profile.jsp?buyerName=<%=buyerName%>">
+          <a class="nav-link " href="../buyer/pages/profile.jsp?buyerName=<%=buyerName%>">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
             </div>
@@ -148,7 +148,7 @@ table {
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="pages/sign-in.jsp">
+          <a class="nav-link " href="../buyer/pages/sign-in.jsp">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
             </div>
@@ -410,10 +410,10 @@ table {
         <%
 		File dir = new File("C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/dragonslayer/seller/pages/uploads/");
 		//File dir = new File("/opt/tomcat/apache-tomcat-9.0.8/webapps/dragonslayer/seller/pages/uploads/");
-
+       int i = 0;
 		String[] files = dir.list();
 
-		for (int i = 0; i < files.length; i++) {
+		for (i = 0; i < files.length; i++) {
 
 		  String thepath = dir.getPath();
 		  thepath = thepath + "/";
@@ -448,7 +448,7 @@ table {
                         <span class="badge badge-sm bg-gradient-success">0.2</span>
                       </td>
                      <td class="align-middle">
-   <div class="btn btn-default btn-sm-0 float-right" style="float: center;" data-toggle="modal" data-software-name="softwareOne" id="editBtn"><i class="fa fa-edit" aria-hidden="true"></i>
+   <div class="btn btn-default btn-sm-0 float-right" style="float: center;" data-toggle="modal" data-software-name="softwareOne" id="editBtn<%=i%>"><i class="fa fa-edit" aria-hidden="true"></i>
                       </td>
                       
                     </tr>
@@ -525,7 +525,7 @@ table {
             <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fa fa-users" aria-hidden="true"></i>
 
- New Software Sellers</h6>
+ My Buyers</h6>
              
             </div>
             <div class="card-body p-3">
@@ -535,10 +535,9 @@ table {
     <table id="myDataTable4" class="table table-striped table-bordered" style="width:100%;height:60%">
     <thead>
     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seller</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Buyer Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Uploaded</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">All Software</th>
+                     
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
@@ -548,8 +547,8 @@ table {
                         <div class="d-flex px-2 py-1">
                           
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Dragon Software</h6>
-                            <p class="text-xs text-secondary mb-0">Software for the future</p>
+                            <h6 class="mb-0 text-sm">Herman Hess</h6>
+                            <p class="text-xs text-secondary mb-0">Buyer</p>
                           </div>
                         </div>
                       </td>
@@ -557,12 +556,7 @@ table {
                         <p class="text-xs font-weight-bold mb-0">44 Chase Road, </br> Chantilly, Virginia 22019</p>
                        
                       </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">03/20/2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Software Link"><span class="text-secondary text-xs font-weight-bold">All Software</span></a>
-                      </td>
+                      
                       <td class="align-middle">
                         <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                           Edit
@@ -733,6 +727,59 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
               </div>
             </div>
         </div>
+		
+		<div class="modal fade" id="editModal" role="dialog">
+            <div class="modal-dialog modal-sm horizonal-align-center">
+              <div class="modal-content">
+                <div class="modal-header">
+                
+                  <h4 class="modal-title"> <image src="websitelogo.png" width="100px" > Edit/Delete</h4>
+                </div>
+                <div class="modal-body">
+				<form action="#">
+            <div class="card-body">
+			
+              <p class="text-uppercase text-sm"><strong>Software Information</strong></p>
+              <div class="row">
+              
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Software Name</label>
+                    <input class="form-control" type="text" id="softwareName" name="softwareName" placeholder="Software Name" value="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Version</label>
+                    <input class="form-control" type="text" id="version" name="version" placeholder="Software Version"value="">
+                  </div>
+                </div>
+                 <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Price</label>
+                    <input class="form-control" type="text" id="price" name="price" placeholder="Software Price"value="$">
+                  </div>
+                </div>
+              </div>
+              <hr class="horizontal dark">
+            
+              </div>
+        
+					  <div class="row">
+                <div class="col-md-12">
+                <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary">Delete</button> <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+                </div>
+              </div>
+            </div>
+			</form>
+                </div>
+            
+              </div>
+            </div>
+        </div>
       <!-- Modal content-->
       
       <div class="modal fade" id="paymentModal" role="dialog">
@@ -826,6 +873,7 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
     </div>
   
   </footer>
+  
 <script>"use strict";
 
 !function() {
@@ -848,7 +896,8 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
-  
+  var i = <%=i%>;
+  console.log("I: " + i);
   $('#paymentBtn').click(function() {
    $('#paymentModal').modal('show');
 });
@@ -866,6 +915,19 @@ $('#downloadBtn2').click(function(e) {
         $("#sortable").disableSelection();
 });
 
+</script>
+<%
+for (int j = 0; j < i; j++) {
+%>
+<script>
+$('#editBtn<%=j%>').click(function(e) {
+	var softwareName = $(e.relatedTarget).data('software-name');
+   $('#editModal').modal('show').val( softwareName );
+});
+</script>
+<% } %>
+
+<script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
     var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);

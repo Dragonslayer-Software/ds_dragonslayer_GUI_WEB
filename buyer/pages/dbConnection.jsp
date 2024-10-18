@@ -45,8 +45,15 @@
                 if (rs.next()) {
                     System.out.println("buyer found");
                     String buyerName = rs.getString("name");
-                   
+                   String isSeller = "yes";
+					if (isSeller.equals("yes")) {
+						
+					response.sendRedirect("../../seller/index.jsp?buyerName=" + buyerName);	
+					} 
+                  if (isSeller.equals("no")) {
+						
 					response.sendRedirect("../index.jsp?buyerName=" + buyerName);
+				  }
                 } else {
                     System.out.println("<p>No buyer found with email: " + email2 + "</p>");
 					response.sendRedirect("sign-up.jsp");
