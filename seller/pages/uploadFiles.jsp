@@ -26,6 +26,7 @@ input[type="file"] {
  if (fileName != null) {
 	 
 	 out.println("<strong>Success, you have uploaded </strong>" + fileName + " </br></br>");
+	
  }
  
  %>
@@ -36,7 +37,7 @@ input[type="file"] {
 						
 						<label class="custom-file-upload">
 <input class="form-select form-select-sm" type="file" name="file" size="80" />Browse 
-</label> <span><input class="custom-file-upload" type="submit" value="Upload File" accept=".zip, .tar" /></span>
+</label> <span><input class="custom-file-upload btn-primary" type="submit" value="Upload File" accept=".zip, .tar" /></span>
 
 
 
