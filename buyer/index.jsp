@@ -39,6 +39,7 @@ String buyerName = request.getParameter("buyerName");
         <link href="pages/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 		    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css rel="stylesheet" type="text/css" />
+	
  <style>
 
 
@@ -69,6 +70,42 @@ table {
   }
 	.h-100 {
   height: 80%;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 4444; /* Sit on top */
+  left: 20px;
+  top: 100px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width:600px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -115,18 +152,10 @@ table {
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Sign In</span>
+            <span class="nav-link-text ms-1">Logout</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " href="pages/sign-up.jsp">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-collection text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li>
-		
+     
       </ul>
     </div>
     
@@ -143,36 +172,212 @@ table {
           <h6 class="font-weight-bolder text-white mb-0">Owner DASHBOARD</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here...">
-            </div>
-          </div>
-          <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a href="pages/sign-in.jsp" class="nav-link text-white font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Logout</span>
-              </a>
-            </li>
-			
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line bg-white"></i>
-                  <i class="sidenav-toggler-line bg-white"></i>
-                  <i class="sidenav-toggler-line bg-white"></i>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
-            </li>
-            
-          </ul>
+          <div id='sb-search-input-example'>
+	<div class="sb-content sb-hero">
+		<div class="sb-search sb-hero">
+			<div class="sb-input">
+				<input class="sb-search-field" name="pesquisa" placeholder="Type your search..." type="search"
+				       autocomplete="off" id="myCustomTextInputID">
+				<div class="sb-search-icon" id="myCustomSearchButtonID">
+					<i class="sb-icon">&#xe80a;</i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<style>
+        @font-face {
+            font-family: font-sb;
+            src: url(https://api.searchbar.org/fonts/sb.eot?39450784);
+            src: url(https://api.searchbar.org/fonts/sb.eot?39450784#iefix) format('embedded-opentype'), url(https://api.searchbar.org/fonts/sb.woff?39450784) format('woff'), url(https://api.searchbar.org/fonts/?39450784) format('truetype'), url(https://api.searchbar.org/fonts/sb.svg?39450784#font-sb) format('svg');
+            font-weight: 400;
+            font-style: normal
+        }
+
+        #sb-search-input-example {
+            position: static;
+            top: 0;
+            width: 100%;
+            height: 90px;
+            place-content: center;
+            display: flex;
+        }
+
+        #sb-search-input-example a, #sb-search-input-example button, #sb-search-input-example div, #sb-search-input-example em, #sb-search-input-example h1, #sb-search-input-example h2, #sb-search-input-example h3, #sb-search-input-example h4, #sb-search-input-example h5, #sb-search-input-example input, #sb-search-input-example p, #sb-search-input-example span {
+            all: initial;
+            font-family: Roboto, Helvetica, Arial;
+            font-size: 0px;
+        }
+
+        #sb-search-input-example div, #sb-search-input-example h1, #sb-search-input-example h2, #sb-search-input-example h3, #sb-search-input-example h4, #sb-search-input-example h5, #sb-search-input-example p {
+            display: block
+        }
+
+        #sb-search-input-example div, #sb-search-input-example em, #sb-search-input-example h1, #sb-search-input-example h2, #sb-search-input-example h3, #sb-search-input-example h4, #sb-search-input-example h5, #sb-search-input-example p, #sb-search-input-example span {
+            font-size: inherit;
+            font-weight: inherit;
+            text-transform: inherit;
+            color: inherit
+        }
+
+        #sb-search-input-example a, #sb-search-input-example a * {
+            cursor: pointer;
+            user-select: none
+        }
+
+        #sb-search-input-example * {
+            box-sizing: border-box
+        }
+
+
+        #sb-search-input-example .sb-content {
+            background: rgba(238, 238, 238, .82);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 46px;
+            display: block;
+            text-align: left;
+            width: 100%;
+            top: calc(120px - 92px);
+            margin-bottom: 0;
+            overflow: hidden;
+            z-index: 1000
+        }
+
+        #sb-search-input-example .sb-content.sb-hero {
+            top: 0px;
+            max-width: 660px;
+            height: auto;
+            z-index: 800;
+            background-color: rgba(202, 202, 202, 0.2);
+            -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px)
+        }
+
+        #sb-search-input-example .sb-search {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 116px;
+            border: 0 none;
+            height: 58px;
+            width: auto;
+            margin: 16px;
+            display: flex;
+            z-index: 999;
+            position: relative;
+        }
+
+        #sb-search-input-example .sb-search.sb-hero {
+            padding: 0 0 0 16px;
+            background-color: white;
+        }
+
+        #sb-search-input-example .sb-input {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            border-radius: 100%;
+            padding: 0 0 0 8px
+        }
+
+        #sb-search-input-example input {
+            outline: 0;
+            color: #007cff;
+            background-color: rgba(0, 0, 0, 0);
+            -webkit-appearance: none
+        }
+
+        #sb-search-input-example ::placeholder {
+            color: #8a8a8a;
+            opacity: 1
+
+        }
+
+        #sb-search-input-example input[type=search]::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0
+        }
+
+        #sb-search-input-example input[type=search]::-ms-reveal {
+            display: none;
+            width: 0;
+            height: 0
+        }
+
+        #sb-search-input-example input[type=search]::-webkit-search-cancel-button, #sb-search-input-example input[type=search]::-webkit-search-decoration, #sb-search-input-example input[type=search]::-webkit-search-results-button, #sb-search-input-example input[type=search]::-webkit-search-results-decoration {
+            display: none
+        }
+
+        #sb-search-input-example .sb-search-field {
+            border: 0 none;
+            height: 100%;
+            width: 100%;
+            font-size: 18px;
+            display: block
+        }
+
+        #sb-search-input-example .sb-icon {
+            font: normal normal 400 26px font-sb;
+            line-height: 26px;
+            align-items: center;
+            padding: 10px;
+            speak: none;
+            display: inline-block;
+            text-decoration: inherit;
+            text-align: center;
+            text-transform: none;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        #sb-search-input-example .sb-search-icon {
+            box-sizing: border-box;
+            border: 0px;
+            margin-right: 7px;
+            align-items: center;
+            border-radius: 50%;
+            background: #007cff;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+        }
+
+        @media (prefers-color-scheme: dark) {
+
+            #sb-search-input-example .sb-search.sb-hero {
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+
+            #sb-search-input-example .sb-content {
+                background: rgba(20, 20, 20, .8);
+            }
+
+
+            #sb-search-input-example .sb-search {
+                background: rgba(0, 0, 0, 0.7);
+            }
+
+            #sb-search-input-example .sb-icon {
+                color: #fff;
+            }
+
+            #sb-search-input-example input {
+                outline: 0;
+                color: #5eb2fe;
+                -webkit-appearance: none;
+            }
+
+            #sb-search-input-example ::placeholder {
+                color: #b5b5b5;
+                opacity: 1;
+            }
+
+        }
+	</style>
+</div>
+          
         </div>
       </div>
     </nav>
@@ -206,7 +411,7 @@ table {
     <td>03/02/2024</td>
     <td>0.1</td>
 	<td>Dragonslayer Software</td>
-	<td><div class="btn btn-default btn-sm-0"><i class="fa fa-download" aria-hidden="true"></i>
+	<td><div class="btn btn-default btn-sm-0" data-toggle="modal" data-software-name="softwareOne" id="downloadBtn"><i class="fa fa-download" aria-hidden="true"></i>
 </div></td>
     </tr>
 	<tr>
@@ -214,7 +419,7 @@ table {
     <td>03/02/2024</td>
     <td>0.1</td>
 	<td>Dragonslayer Software</td>
-	<td><div class="btn btn-default btn-sm-0"><i class="fa fa-download" aria-hidden="true"></i>
+	<td><div class="btn btn-default btn-sm-0" data-toggle="modal" data-software-name="softwareTwo" id="downloadBtn2"><i class="fa fa-download" aria-hidden="true"></i>
 </div></td>
     </tr>
     </tbody>
@@ -290,7 +495,7 @@ table {
             </div>
             <div class="card-body p-3">
            
-			 					 <button style="float: right;" class="btn btn-primary" onClick=""><i class="fa fa-plus" ></i></button>
+			 					 <button style="float: right;" class="btn btn-primary" id="paymentBtn"><i class="fa fa-plus" ></i></button>
 
                   <div class="container mt-0">
     <table id="myDataTable3" class="table table-striped table-bordered" style="width:100%">
@@ -342,10 +547,10 @@ table {
             <div class="card-body p-3">
 								 <button style="float: right;" class="btn btn-primary" onClick="window.location.reload();"><i class="fa fa-refresh" ></i></button>
 
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
+              <div class="container mt-0">
+    <table id="myDataTable4" class="table table-striped table-bordered" style="width:100%;height:60%">
+    <thead>
+    <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seller</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Uploaded</th>
@@ -398,10 +603,10 @@ table {
              
             </div>
             <div class="card-body p-3">
-             <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
+           <div class="container mt-0">
+    <table id="myDataTable5" class="table table-striped table-bordered" style="width:100%;height:60%">
+    <thead>
+    <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Company</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Software</th>
@@ -449,18 +654,22 @@ table {
               <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fas fa-search" aria-hidden="true"></i> Available Software</h6>
               <div class="container mt-0">
-    <table id="myDataTable4" class="table table-striped table-bordered" style="width:100%;height:60%">
+   <div class="container mt-0">
+    <table id="myDataTable6" class="table table-striped table-bordered" style="width:100%;height:60%">
     <thead>
     <tr>
                       <th style="width:250px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-                      <th style="width:100px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date Purchased</th>
+                      <th style="width:100px" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Version</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seller</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-			
+			  <div class="row">
+        
+       
+    </div>
         <%
 		File dir = new File("C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/dragonslayer/seller/pages/uploads/");
 		//File dir = new File("/opt/tomcat/apache-tomcat-9.0.8/webapps/dragonslayer/seller/pages/uploads/");
@@ -495,7 +704,7 @@ table {
                       </td>
 					
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"><%= df.format(d) %></p>
+                        <p class="text-xs font-weight-bold mb-0">$29.99</p>
                        
                       </td>
                       <td class="align-middle text-center text-sm">
@@ -505,7 +714,7 @@ table {
                         <span class="text-secondary text-xs font-weight-bold">Dragon Software</span>
                       </td>
                       <td class="align-middle">
-                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS" class="badge badge-sm bg-gradient-default" data-toggle="modal" data-target="#myModal" data-original-title="download">
+                        <a href="https://www.paypal.com/ncp/payment/E2LFG8PFLD9WS?price=<%=price%>" class="badge badge-sm bg-gradient-default" data-toggle="modal" data-target="#myModal" data-original-title="download">
                           <img src="paypal.png" width="30px"/>
                         </a>
 						
@@ -526,131 +735,260 @@ table {
       </div>
 	  </div>
       <div class="row mt-4">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <div class="card">
            
             <div class="card-body p-3">
             
-     <script src="https://static.elfsight.com/platform/platform.js" async></script>
-<div class="elfsight-app-e5db3418-241f-4774-b7f3-b4ff77845fd5" data-elfsight-app-lazy></div>
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-lg-12 text-center">
+            <h2 class="display-6">Dragonslayer Blog</h2>
+            <p class="lead text-muted">Welcome to the Dragonslayer Dashboard Blog.</p>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <img src="pages/ai1.webp" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h5 class="card-title">AI Revolution</h5>
+                    <p class="card-text">Artificial intelligence (AI) is an exciting area of technology that has the potential to change how industries operate and consumers live their lives, and in the years ahead, it may present many ways to profit.
+
+The WisdomTree Artificial Intelligence and Innovation Fund:
+
+    Seeks to offer precise access to the AI megatrend through direct investment in publicly listed firms all over the globe that are focused on capitalizing on AI in a diverse array of technologies and applications 
+    Leverages a comprehensive approach that blends quantitative and qualitative research, seeking exposure to opportunities in the development and deployment of AI
+.</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <small class="text-muted"></small>
+                    <small class="text-muted"></small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="pages/AI2.avif" width="150px" height="258px" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h5 class="card-title">Apollo Connectors</h5>
+                    <p class="card-text">To enable companies to more easily incrementally adopt GraphQL without needing to overhaul their existing systems, Apollo GraphQL has announced a public preview of Apollo Connectors, which enables developers to turn a REST API into a GraphQL endpoint. 
+
+According to the company, this helps to bridge the gap between REST architectures and GraphQL deployments, which leads to a more unified API strategy. 
+
+Apollo Connectors offers a declarative method for connecting endpoints to simplify the process of mapping types and fields to series. They also reduce technical debt by reducing complexity in GraphQL server development and maintenance..</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <small class="text-muted"></small>
+                    <small class="text-muted"></small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="pages/linux.jpg"  height="258px" class="card-img-top" alt="image">
+                <div class="card-body">
+                    <h5 class="card-title">Linux Foundation Decentralized Trust aims for web3 innovation</h5>
+                    <p class="card-text">TThe Linux Foundation Decentralized Trust aims to foster collaboration and innovation across the web3 ecosystem of blockchain, ledger, identity, interoperability, and cryptographic technologies.
+
+With over 100 founding members, LF Decentralized Trust claims to be a neutral platform for the collaborative development of technologies powering the transition to a digital-first economy.</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <small class="text-muted"></small>
+                    <small class="text-muted"></small>
+                </div>
+            </div>
+			
+			
+        </div>
+
+    </div>
+   
+</div>
+
+<footer class="footer py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 mb-4 mx-auto text-center">
+          
+      <div class="row">
+        <div class="col-12 mx-auto text-center mt-1">
+          <p class="mb-0 text-primary">
+            <strong>Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2024 <a href="https://dragonslayersoftware.my.canva.site/">DragonSlayer Software, LLC</a></strong>
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</footer>
     </div> 
 
             </div>
           </div>
-		     <div class="col-lg-6">
-          <div class="card">
-           
-            <div class="card-body p-3">
-			 <div class="card-header pb-0 pt-3 bg-transparent">
-              <h6 class="text-capitalize"><i class="fas fa-search" aria-hidden="true"></i> OS</h6>
-			  </div>
-
-            </div>
-          </div>
-        </div>
-       
+		  
         </div>
       </div>
       
     </div>
   </main>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
-    <div class="card shadow-lg">
-      <div class="card-header pb-0 pt-3 ">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">Dragonslayer Config</h5>
-          <p>See our dashboard options.</p>
-        </div>
-        <div class="float-end mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="fa fa-close"></i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0 overflow-auto">
-        <!-- Sidebar Backgrounds -->
-        <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-start">
-            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-          </div>
-        </a>
-        <!-- Sidenav Type -->
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
-        </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2 active me-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-          <button class="btn bg-gradient-primary w-100 px-3 mb-2" data-class="bg-default" onclick="sidebarType(this)">Dark</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="d-flex my-3">
-          <h6 class="mb-0">Navbar Fixed</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-          </div>
-        </div>
-        <hr class="horizontal dark my-sm-4">
-        <div class="mt-2 mb-5 d-flex">
-          <h6 class="mb-0">Dark/Light</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
-          </div>
-        </div>
-      
-        </div>
-      </div>
-    </div>
+ 
   </div>
-  <footer class="footer py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mb-4 mx-auto text-center">
-          
-      <div class="row">
-        <div class="col-8 mx-auto text-center mt-1">
-          <p class="mb-0 text-secondary">
-            Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2024 DragonSlayer Software, LLC
-          </p>
-        </div>
-      </div>
-    </div>
+  
+<div class="modal fade" id="downloadModal" role="dialog">
+            <div class="modal-dialog modal-sm horizonal-align-center">
+              <div class="modal-content">
+                <div class="modal-header">
+                
+                  <h4 class="modal-title">Download Software</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+            <div class="card-body">
+              <p class="text-uppercase text-sm">Software Information</p>
+              <div class="row">
+              
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Software Name</label>
+                    <input class="form-control" type="text" id="softwareName" name="softwareName" placeholder="Software Name" value="SoftwareOne">
+                  </div>
+                </div>
+                <div class="col-md-6">
 
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Software Version</label>
+                    <input class="form-control" type="text" id="version" name="version" placeholder="Version"value="0.1">
+                  </div>
+                </div>
+                <a href="../seller/pages/uploads/softwareOne.zip" download="softwareOne.zip"><i class="fa fa-download" aria-hidden="true"></i></a>
+              <div class="container py-4">
+  
 </div>
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+              </div>
+              
+           
+			  <div class="row">
+                <div class="col-md-12">
+                <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+     
       </div>
+                </div>
+              </div>
+            </div>
+			</form>
+                </div>
+            
+              </div>
+            </div>
+        </div>
+      <!-- Modal content-->
       
+      <div class="modal fade" id="paymentModal" role="dialog">
+            <div class="modal-dialog modal-sm horizonal-align-center">
+              <div class="modal-content">
+                <div class="modal-header">
+                
+                  <h4 class="modal-title">Add Payment Methods</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+            <div class="card-body">
+              <p class="text-uppercase text-sm">User Information</p>
+              <div class="row">
+              
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Paypal Email address</label>
+                    <input class="form-control" type="email" id="email" name="email" placeholder="Email Address" value="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">First name</label>
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="First Name"value="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Last name</label>
+                    <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Last Name" value="">
+                  </div>
+                </div>
+				 <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Mobile Phone</label>
+                    <input class="form-control" type="tel" id="mobile" name="mobile" placeholder="Mobile Number" value="">
+                  </div>
+                </div>
+              </div>
+              <hr class="horizontal dark">
+              <p class="text-uppercase text-sm">Contact Information</p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Address</label>
+                    <input class="form-control" type="text" id="address" name="address" placeholder="Street Address" value="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">City</label>
+                    <input class="form-control" type="text" id="city" name="city" placeholder="City" value="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">State</label>
+                    <input class="form-control" type="text" id="state" name="state"  placeholder="WV" value="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Postal code</label>
+                    <input class="form-control" type="text" id="zip" name="zip" placeholder="Postal Code" value="">
+                  </div>
+                </div>
+				 <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Country</label>
+                    <input class="form-control" type="text" id="country" name="country"  value="United States">
+                  </div>
+                </div>
+              </div>
+           
+			  <div class="row">
+                <div class="col-md-12">
+                <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+                </div>
+              </div>
+            </div>
+			</form>
+                </div>
+            
+              </div>
+            </div>
+        </div>
     </div>
-  </div>
+  
   </footer>
+<script>"use strict";
+
+!function() {
+    var t = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MGZkNWVmNzVkNjU3MmY4NDU0OGU0YSIsInRva2VuVHlwZSI6InB1YmxpYyIsImlhdCI6MTcyOTA5MTEzOCwiZXhwIjoxNDM0MzQ5MTEzOH0.NU-gdw_1zZa-h_04oHGgnzqR7s0UXi4yGB06b03BpcQ";
+    function e() {
+        var e = document.createElement("script"), a = navigator.language || navigator.userLanguage;
+        e.type = "text/javascript", e.async = !0, e.src = "https://api.searchbar.org/v1/widget/" + t + "/" + a;
+        var n = document.getElementsByTagName("script")[0];
+        n.parentNode.insertBefore(e, n);
+    }
+    "complete" === document.readyState ? e() : window.attachEvent ? window.attachEvent("onload", e) : window.addEventListener("load", e, !1);
+}();</script>
+
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>
@@ -660,6 +998,19 @@ table {
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
+  
+  $('#paymentBtn').click(function() {
+   $('#paymentModal').modal('show');
+});
+$('#downloadBtn').click(function(e) {
+	var softwareName = $(e.relatedTarget).data('software-name');
+   $('#downloadModal').modal('show').val( softwareName );
+});
+
+$('#downloadBtn2').click(function(e) {
+	var softwareName = $(e.relatedTarget).data('software-name');
+   $('#downloadModal').modal('show').val( softwareName );
+});
   $( document ).ready(function() {
    $("#sortable").sortable();
         $("#sortable").disableSelection();
@@ -759,33 +1110,7 @@ table {
   
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/argon-dashboard.min.js?v=2.0.4"></script>
- <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script> 
+ 
 
 
 <!-- Start of OpenWidget (www.openwidget.com) code -->
@@ -796,7 +1121,7 @@ window.onclick = function(event) {
     paging: false, // Enable pagination
     searching: true, // Enable search
     ordering: true, // Enable sorting
-    info: true, // Show information
+    info: false, // Show information
     lengthChange: true, // Disable the "Show X entries" dropdown
     });
     });
@@ -806,7 +1131,7 @@ window.onclick = function(event) {
     paging: false, // Enable pagination
     searching: true, // Enable search
     ordering: true, // Enable sorting
-    info: true, // Show information
+    info: false, // Show information
     lengthChange: true, // Disable the "Show X entries" dropdown
     });
     });
@@ -816,8 +1141,8 @@ window.onclick = function(event) {
     paging: false, // Enable pagination
     searching: true, // Enable search
     ordering: true, // Enable sorting
-    info: true, // Show information
-    lengthChange: false, // Disable the "Show X entries" dropdown
+    info: false, // Show information
+    lengthChange: true, // Disable the "Show X entries" dropdown
     });
     });
 	  $(document).ready(function() {
@@ -826,8 +1151,28 @@ window.onclick = function(event) {
     paging: false, // Enable pagination
     searching: true, // Enable search
     ordering: true, // Enable sorting
-    info: true, // Show information
-    lengthChange: false, // Disable the "Show X entries" dropdown
+    info: false, // Show information
+    lengthChange: true, // Disable the "Show X entries" dropdown
+    });
+    });
+	  $(document).ready(function() {
+    // Initialize DataTable
+    $('#myDataTable5').DataTable({
+    paging: false, // Enable pagination
+    searching: true, // Enable search
+    ordering: true, // Enable sorting
+    info: false, // Show information
+    lengthChange: true, // Disable the "Show X entries" dropdown
+    });
+    });
+	  $(document).ready(function() {
+    // Initialize DataTable
+    $('#myDataTable6').DataTable({
+    paging: false, // Enable pagination
+    searching: true, // Enable search
+    ordering: true, // Enable sorting
+    info: false, // Show information
+    lengthChange: true, // Disable the "Show X entries" dropdown
     });
     });
   window.__ow = window.__ow || {};
