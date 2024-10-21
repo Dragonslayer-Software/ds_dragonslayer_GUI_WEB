@@ -145,6 +145,13 @@ table {
             <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
+		 <li class="nav-item">
+          <a class="nav-link " href="#">
+		  <i style="margin-left:10px;color:black" class="fa fa-wrench" aria-hidden="true"></i>
+           
+            <span class="nav-link-text ms-1">Support</span>
+          </a>
+        </li>
         <li class="nav-item">
           <a class="nav-link " href="../buyer/pages/sign-in.jsp">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -382,7 +389,7 @@ table {
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row" id="sortable">
-	  <div class="col-lg-10" style="margin-left:120px">
+	  <div class="col-lg-6" >
           <div class="card overflow-hidden h-100 p-0">
               <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fas fa-search" aria-hidden="true"></i> My Uploaded Software</h6>
@@ -454,7 +461,7 @@ table {
                       </td>
                      <td class="align-middle">
 					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="<%=files[i]%>" id="editBtn<%=i%>"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                      <a href="action.jsp?file=<%=files[i]%>" ><button type="button" class="btn btn-default"  value="<%=files[i]%>" id="deletefile<%=i%>"><i class="fas fa-trash-alt"></i></button></a>
+                        <a href="action.jsp?file=<%=files[i]%>" ><button type="button" class="btn btn-default"  value="<%=files[i]%>" id="deletefile<%=i%>"><i class="fas fa-trash-alt"></i></button></a>
 
 					  </td>
                       
@@ -473,15 +480,11 @@ table {
               </div>  
       </div>
 	  </div>
-     
-        
-		</div>
-		<div class="row mt-4">
-        <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+     <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
             <div class="card z-index-2 h-100">
             <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fa fa-money" aria-hidden="true"></i>
- My Payment Methods</h6>
+ My Total Sales</h6>
              
             </div>
             <div class="card-body p-3">
@@ -492,10 +495,10 @@ table {
     <table id="myDataTable3" class="table table-striped table-bordered" style="width:100%">
     <thead>
     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Payment Method</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Software Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Amount Purchased</th>
                       
-                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Buyer</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -504,18 +507,18 @@ table {
                         <div class="d-flex px-2 py-1">
                           
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">PayPal</h6>
+                            <h6 class="mb-0 text-sm">SoftwareOne</h6>
                             
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">lewellynmary@yahoo.com</p>
+                        <p class="text-xs font-weight-bold mb-0">54 units</p>
                        
                       </td>
                       
                       <td class="align-middle">
-					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="" id="editBtn2"><i class="fa fa-edit" aria-hidden="true"></i></button>
+					 <button type="button" style="margin-left:40px"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#buyerModal" data-price="$29.99" data-version="0.2" data-software="" id="editBtn2"><i class="fa fa-user" aria-hidden="true"></i></button>
                         
                       </td>
                     </tr>
@@ -526,6 +529,10 @@ table {
             </div>
           </div>
         </div>
+        
+		</div>
+		<div class="row mt-4">
+        
         <div class="col-xl-6 col-sm-6">
            <div class="card z-index-2 h-100">
             <div class="card-header pb-0 pt-3 bg-transparent">
@@ -544,7 +551,7 @@ table {
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Buyer Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
                      
-                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Edit Buyer</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -564,9 +571,57 @@ table {
                       </td>
                       
                       <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
+					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="" id="editBtn"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                    
+                      </td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+		<div class="col-xl-6 col-sm-6">
+           <div class="card z-index-2 h-100">
+            <div class="card-header pb-0 pt-3 bg-transparent">
+              <h6 class="text-capitalize"><i class="fa fa-users" aria-hidden="true"></i>
+
+Pending Orders</h6>
+             
+            </div>
+            <div class="card-body p-3">
+								 <button style="float: right;" class="btn btn-primary" onClick="window.location.reload();"><i class="fa fa-refresh" ></i></button>
+
+              <div class="container mt-0">
+    <table id="myDataTable4" class="table table-striped table-bordered" style="width:100%;height:60%">
+    <thead>
+    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Buyer Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
+                     
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Edit Buyer</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Herman Hess</h6>
+                            <p class="text-xs text-secondary mb-0">Buyer</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">44 Chase Road, </br> Chantilly, Virginia 22019</p>
+                       
+                      </td>
+                      
+                      <td class="align-middle">
+					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="" id="editBtn"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                    
                       </td>
                     </tr>
                     
@@ -785,7 +840,58 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
             
               </div>
             </div>
-        </div>
+      
+		<div class="modal fade" id="buyerModal" role="dialog">
+            <div class="modal-dialog modal-sm horizonal-align-center">
+              <div class="modal-content">
+                <div class="modal-header">
+                
+                  <h4 class="modal-title"> <image src="websitelogo.png" width="100px" > List of Buyers</h4>
+                </div>
+                <div class="modal-body">
+				<form action="#">
+            <div class="card-body">
+			
+              <p class="text-uppercase text-sm"><strong>Software Information</strong></p>
+              <div class="row">
+              
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Software Name</label>
+                    <input class="form-control" type="text" id="software" name="software" placeholder="Software Name" value="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Version</label>
+                    <input class="form-control" type="text" id="version" name="version" placeholder="Software Version"value="">
+                  </div>
+                </div>
+                 <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Price</label>
+                    <input class="form-control" type="text" id="price" name="price" placeholder="Software Price"value="$">
+                  </div>
+                </div>
+              </div>
+              <hr class="horizontal dark">
+            
+              </div>
+        
+					  <div class="row">
+                <div class="col-md-12">
+                <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+                </div>
+              </div>
+            </div>
+			</form>
+                </div>
+            
+              </div>
+            </div>
       <!-- Modal content-->
       
       <div class="modal fade" id="paymentModal" role="dialog">
