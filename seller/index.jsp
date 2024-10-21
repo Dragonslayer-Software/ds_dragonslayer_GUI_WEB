@@ -34,9 +34,7 @@ String buyerName = request.getParameter("buyerName");
  <link id="pagestyle" href="assets/css/argon-dashboard.css" rel="stylesheet" />
  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- <link href="pages/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="pages/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="pages/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+ 
 		    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css rel="stylesheet" type="text/css" />
 	
@@ -172,11 +170,11 @@ table {
           <h6 class="font-weight-bolder text-white mb-0">Owner DASHBOARD</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div id='sb-search-input-example'>
+          <div id='sb-search-input-example' >
 	<div class="sb-content sb-hero">
 		<div class="sb-search sb-hero">
 			<div class="sb-input">
-				<input class="sb-search-field" name="pesquisa" placeholder="Type your search..." type="search"
+				<input class="sb-search-field" style="float: right;" name="pesquisa" placeholder="Type your search..." type="search"
 				       autocomplete="off" id="myCustomTextInputID">
 				<div class="sb-search-icon" id="myCustomSearchButtonID">
 					<i class="sb-icon">&#xe80a;</i>
@@ -408,6 +406,13 @@ table {
        
     </div>
         <%
+		
+		// File myObj = new File("filename.txt"); 
+    // if (myObj.delete()) { 
+      // System.out.println("Deleted the file: " + myObj.getName());
+    // } else {
+      // System.out.println("Failed to delete the file.");
+    // } 
 		File dir = new File("C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/dragonslayer/seller/pages/uploads/");
 		//File dir = new File("/opt/tomcat/apache-tomcat-9.0.8/webapps/dragonslayer/seller/pages/uploads/");
        int i = 0;
@@ -434,7 +439,7 @@ table {
                         <div class="d-flex px-2 py-1">
                           
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><%= files[i]%></h6>
+                            <h6 class="mb-0 text-sm"><%=files[i]%></h6>
                             <p class="text-xs text-secondary mb-0">Dragon Software</p>
                           </div>
                         </div>
@@ -448,8 +453,10 @@ table {
                         <span class="badge badge-sm bg-gradient-success">0.2</span>
                       </td>
                      <td class="align-middle">
-   <div class="btn btn-default btn-sm-0 float-right" style="float: center;" data-toggle="modal" data-software-name="softwareOne" id="editBtn<%=i%>"><i class="fa fa-edit" aria-hidden="true"></i>
-                      </td>
+					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="<%=files[i]%>" id="editBtn<%=i%>"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                      <a href="action.jsp?file=<%=files[i]%>" ><button type="button" class="btn btn-default"  value="<%=files[i]%>" id="deletefile<%=i%>"><i class="fas fa-trash-alt"></i></button></a>
+
+					  </td>
                       
                     </tr>
                       <%
@@ -466,7 +473,7 @@ table {
               </div>  
       </div>
 	  </div>
-        
+     
         
 		</div>
 		<div class="row mt-4">
@@ -508,9 +515,8 @@ table {
                       </td>
                       
                       <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
+					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="" id="editBtn2"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                        
                       </td>
                     </tr>
                     
@@ -745,7 +751,7 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="example-text-input" class="form-control-label">Software Name</label>
-                    <input class="form-control" type="text" id="softwareName" name="softwareName" placeholder="Software Name" value="">
+                    <input class="form-control" type="text" id="software" name="software" placeholder="Software Name" value="">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -769,7 +775,7 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
                 <div class="col-md-12">
                 <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Delete</button> <button type="button" class="btn btn-primary">Save changes</button>
+         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
                 </div>
               </div>
@@ -915,15 +921,33 @@ $('#downloadBtn2').click(function(e) {
         $("#sortable").disableSelection();
 });
 
+
 </script>
 <%
 for (int j = 0; j < i; j++) {
 %>
 <script>
-$('#editBtn<%=j%>').click(function(e) {
-	var softwareName = $(e.relatedTarget).data('software-name');
-   $('#editModal').modal('show').val( softwareName );
-});
+var editModal = document.getElementById('editModal')
+editModal.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var editBtn<%=j%> = event.relatedTarget;
+  // Extract info from data-bs-* attributes
+  var softwareName =editBtn<%=j%>.getAttribute('data-software');
+  console.log("***************Software: " + softwareName);
+  var price =editBtn<%=j%>.getAttribute('data-price');
+  console.log("***************Price: " + price);
+  var version =editBtn<%=j%>.getAttribute('data-version');
+  console.log("***************Version: " + version);
+  //put in text boxes
+  var modalBodyInput = editModal.querySelector('.modal-body #software');
+  modalBodyInput.value = softwareName;
+  
+  var modalBodyInput2 = editModal.querySelector('.modal-body #price');
+  modalBodyInput2.value = price;
+  
+  var modalBodyInput3 = editModal.querySelector('.modal-body #version');
+  modalBodyInput3.value = version;
+})
 </script>
 <% } %>
 
