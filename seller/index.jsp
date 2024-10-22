@@ -480,6 +480,7 @@ table {
               </div>  
       </div>
 	  </div>
+	  
      <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
             <div class="card z-index-2 h-100">
             <div class="card-header pb-0 pt-3 bg-transparent">
@@ -489,7 +490,6 @@ table {
             </div>
             <div class="card-body p-3">
            
-			 					 <button style="float: right;" class="btn btn-primary" id="paymentBtn"><i class="fa fa-plus" ></i></button>
 
                   <div class="container mt-0">
     <table id="myDataTable3" class="table table-striped table-bordered" style="width:100%">
@@ -518,7 +518,7 @@ table {
                       </td>
                       
                       <td class="align-middle">
-					 <button type="button" style="margin-left:40px"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#buyerModal" data-price="$29.99" data-version="0.2" data-software="" id="editBtn2"><i class="fa fa-user" aria-hidden="true"></i></button>
+					 <button type="button" style="margin-left:40px"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pendingModal" data-price="$29.99" data-version="0.2" data-software="" id="pendingBtn"><i class="fa fa-user" aria-hidden="true"></i></button>
                         
                       </td>
                     </tr>
@@ -533,7 +533,7 @@ table {
 		</div>
 		<div class="row mt-4">
         
-        <div class="col-xl-6 col-sm-6">
+        <div class="col-xl-12 col-sm-12">
            <div class="card z-index-2 h-100">
             <div class="card-header pb-0 pt-3 bg-transparent">
               <h6 class="text-capitalize"><i class="fa fa-users" aria-hidden="true"></i>
@@ -542,15 +542,16 @@ table {
              
             </div>
             <div class="card-body p-3">
-								 <button style="float: right;" class="btn btn-primary" onClick="window.location.reload();"><i class="fa fa-refresh" ></i></button>
+                     			 					 <button style="float: right;" class="btn btn-primary" id="addBuyerBtn"><i class="fa fa-plus" ></i></button>
 
               <div class="container mt-0">
-    <table id="myDataTable4" class="table table-striped table-bordered" style="width:100%;height:60%">
+    <table id="myDataTable4" class="table table-striped table-bordered responsive" style="width:100%">
     <thead>
     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Buyer Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
-                     
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">First Name</th>
+					  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Last Name</th>
+					  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email Address</th>
+                      
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Edit Buyer</th>
                     </tr>
                   </thead>
@@ -560,68 +561,33 @@ table {
                         <div class="d-flex px-2 py-1">
                           
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Herman Hess</h6>
+                            <h6 class="mb-0 text-sm" id="firstName" >Herman</h6>
                             <p class="text-xs text-secondary mb-0">Buyer</p>
                           </div>
                         </div>
                       </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">44 Chase Road, </br> Chantilly, Virginia 22019</p>
-                       
-                      </td>
-                      
-                      <td class="align-middle">
-					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="" id="editBtn"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                    
-                      </td>
-                    </tr>
-                    
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-		<div class="col-xl-6 col-sm-6">
-           <div class="card z-index-2 h-100">
-            <div class="card-header pb-0 pt-3 bg-transparent">
-              <h6 class="text-capitalize"><i class="fa fa-users" aria-hidden="true"></i>
-
-Pending Orders</h6>
-             
-            </div>
-            <div class="card-body p-3">
-								 <button style="float: right;" class="btn btn-primary" onClick="window.location.reload();"><i class="fa fa-refresh" ></i></button>
-
-              <div class="container mt-0">
-    <table id="myDataTable4" class="table table-striped table-bordered" style="width:100%;height:60%">
-    <thead>
-    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Buyer Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Contact</th>
-                     
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Edit Buyer</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
+					   <td>
                         <div class="d-flex px-2 py-1">
                           
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Herman Hess</h6>
-                            <p class="text-xs text-secondary mb-0">Buyer</p>
+                            <h6 class="mb-0 text-sm" id="lastName" >Hess</h6>
+                           
                           </div>
                         </div>
                       </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">44 Chase Road, </br> Chantilly, Virginia 22019</p>
-                       
+					   <td>
+                        <div class="d-flex px-2 py-1">
+                          
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm" id="email" >herman@gmail.com</h6>
+                          
+                          </div>
+                        </div>
                       </td>
                       
                       <td class="align-middle">
-					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="" id="editBtn"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                    
+					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editBuyerModal" data-email="herman@gmail" data-firstName="Herman" data-lastName="Hess" id="editBuyerBtn"><i class="fa fa-edit" aria-hidden="true"></i></button>
+
                       </td>
                     </tr>
                     
@@ -631,9 +597,11 @@ Pending Orders</h6>
             </div>
           </div>
         </div>
+		
       </div>
 	 
       <div class="row mt-4">
+	  
         <div class="col-lg-12">
           <div class="card">
            
@@ -788,7 +756,94 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
               </div>
             </div>
         </div>
-		
+		<div class="modal fade" id="editBuyerModal" role="dialog">
+            <div class="modal-dialog modal-sm horizonal-align-center">
+              <div class="modal-content">
+                <div class="modal-header">
+                
+                  <h4 class="modal-title">Edit Buyer</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+            <div class="card-body">
+              <p class="text-uppercase text-sm">User Information</p>
+              <div class="row">
+              
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Paypal Email address</label>
+                    <input class="form-control" type="email" id="email" name="email" placeholder="Email Address" value="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">First name</label>
+                    <input class="form-control" type="text" id="firstName" name="firstName" placeholder="First Name"value="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Last name</label>
+                    <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Last Name" value="">
+                  </div>
+                </div>
+				 <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Mobile Phone</label>
+                    <input class="form-control" type="tel" id="mobile" name="mobile" placeholder="Mobile Number" value="">
+                  </div>
+                </div>
+              </div>
+              <hr class="horizontal dark">
+              <p class="text-uppercase text-sm">Contact Information</p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Address</label>
+                    <input class="form-control" type="text" id="address" name="address" placeholder="Street Address" value="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">City</label>
+                    <input class="form-control" type="text" id="city" name="city" placeholder="City" value="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">State</label>
+                    <input class="form-control" type="text" id="state" name="state"  placeholder="WV" value="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Postal code</label>
+                    <input class="form-control" type="text" id="zip" name="zip" placeholder="Postal Code" value="">
+                  </div>
+                </div>
+				 <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Country</label>
+                    <input class="form-control" type="text" id="country" name="country"  value="United States">
+                  </div>
+                </div>
+              </div>
+           
+			  <div class="row">
+                <div class="col-md-12">
+                <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+                </div>
+              </div>
+            </div>
+			</form>
+                </div>
+            
+              </div>
+            </div>
+        </div>
 		<div class="modal fade" id="editModal" role="dialog">
             <div class="modal-dialog modal-sm horizonal-align-center">
               <div class="modal-content">
@@ -841,7 +896,7 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
               </div>
             </div>
       
-		<div class="modal fade" id="buyerModal" role="dialog">
+		<div class="modal fade" id="pendingModal" role="dialog">
             <div class="modal-dialog modal-sm horizonal-align-center">
               <div class="modal-content">
                 <div class="modal-header">
@@ -852,37 +907,37 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
 				<form action="#">
             <div class="card-body">
 			
-              <p class="text-uppercase text-sm"><strong>Software Information</strong></p>
+              <p class="text-uppercase text-sm"><strong>Buyer Information</strong></p>
               <div class="row">
               
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Software Name</label>
-                    <input class="form-control" type="text" id="software" name="software" placeholder="Software Name" value="">
+                    <ul>
+					<li>
+					Herman Hess
+					</li>
+					<li>
+					John Smith
+					</li>
+					<li>
+					Simon Andrews
+					</li>
+					<li>
+					Patricia Moss
+					</li>
+					</ul>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Version</label>
-                    <input class="form-control" type="text" id="version" name="version" placeholder="Software Version"value="">
-                  </div>
-                </div>
-                 <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="example-text-input" class="form-control-label">Price</label>
-                    <input class="form-control" type="text" id="price" name="price" placeholder="Software Price"value="$">
-                  </div>
-                </div>
+              
+                
               </div>
-              <hr class="horizontal dark">
-            
+          
               </div>
         
 					  <div class="row">
                 <div class="col-md-12">
                 <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
                 </div>
               </div>
@@ -894,12 +949,12 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
             </div>
       <!-- Modal content-->
       
-      <div class="modal fade" id="paymentModal" role="dialog">
+      <div class="modal fade" id="addBuyerModal" role="dialog">
             <div class="modal-dialog modal-sm horizonal-align-center">
               <div class="modal-content">
                 <div class="modal-header">
                 
-                  <h4 class="modal-title">Add Payment Methods</h4>
+                  <h4 class="modal-title">Add Buyer</h4>
                 </div>
                 <div class="modal-body">
                     <form action="#">
@@ -1010,8 +1065,8 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
   <script>
   var i = <%=i%>;
   console.log("I: " + i);
-  $('#paymentBtn').click(function() {
-   $('#paymentModal').modal('show');
+  $('#addBuyerBtn').click(function() {
+   $('#addBuyerModal').modal('show');
 });
 $('#downloadBtn').click(function(e) {
 	var softwareName = $(e.relatedTarget).data('software-name');
@@ -1021,6 +1076,10 @@ $('#downloadBtn').click(function(e) {
 $('#downloadBtn2').click(function(e) {
 	var softwareName = $(e.relatedTarget).data('software-name');
    $('#downloadModal').modal('show').val( softwareName );
+});
+$('#pendingBtn').click(function(e) {
+	var softwareName = $(e.relatedTarget).data('software-name');
+   $('#pendingModal').modal('show').val( softwareName );
 });
   $( document ).ready(function() {
    $("#sortable").sortable();
@@ -1053,6 +1112,36 @@ editModal.addEventListener('show.bs.modal', function (event) {
   
   var modalBodyInput3 = editModal.querySelector('.modal-body #version');
   modalBodyInput3.value = version;
+})
+</script>
+
+<% } %>
+
+<%
+for (int k = 0; k < 1; k++) {
+%>
+<script>
+var editBuyerModal = document.getElementById('editBuyerModal')
+editBuyerModal.addEventListener('show.bs.modal', function (event) {
+  // Button that triggered the modal
+  var editBuyerBtn<%= k%> = event.relatedTarget;
+  // Extract info from data-bs-* attributes
+  var firstName =editBuyerBtn<%=k%>.getAttribute('data-firstName');
+  console.log("***************firstName: " + firstName);
+  var lastName =editBuyerBtn<%=k%>.getAttribute('data-lastName');
+  console.log("***************lastName: " + lastName);
+  var email =editBuyerBtn<%=k%>.getAttribute('data-email');
+  console.log("***************email: " + email);
+ 
+  //put in text boxes
+  var modalBodyInput4 = editBuyerModal.querySelector('.modal-body #firstName');
+  modalBodyInput4.value = firstName;
+   var modalBodyInput5 = editBuyerModal.querySelector('.modal-body #lastName');
+  modalBodyInput5.value = lastName;
+  var modalBodyInput6 = editBuyerModal.querySelector('.modal-body #email');
+  modalBodyInput6.value = email;
+
+  
 })
 </script>
 <% } %>
