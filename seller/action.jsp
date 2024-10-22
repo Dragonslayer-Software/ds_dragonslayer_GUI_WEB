@@ -9,6 +9,7 @@
 <%
 String fileDelete = request.getParameter("file");
 System.out.println("File to delete: " + fileDelete);
+//File f = new File("/opt/tomcat/apache-tomcat-9.0.8/webapps/dragonslayer/seller/pages/uploads/" + request.getParameter("file"));
 File f=new File("C:/Program Files/Apache Software Foundation/Tomcat 9.0/webapps/dragonslayer/seller/pages/uploads/" + request.getParameter("file"));
 System.out.println(f);
 f.delete();

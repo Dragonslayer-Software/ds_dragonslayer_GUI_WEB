@@ -461,8 +461,7 @@ table {
                       </td>
                      <td class="align-middle">
 					 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-price="$29.99" data-version="0.2" data-software="<%=files[i]%>" id="editBtn<%=i%>"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                        <a href="action.jsp?file=<%=files[i]%>" ><button type="button" class="btn btn-default"  value="<%=files[i]%>" id="deletefile<%=i%>"><i class="fas fa-trash-alt"></i></button></a>
-
+                        <a href="action.jsp?file=<%=files[i]%>" onclick="return confirm('Are you sure you want to delete this item?');"> <button type="button" class="btn btn-default"  value="<%=files[i]%>" id="deletefile<%=i%>"><i class="fas fa-trash-alt"></i></button></a>
 					  </td>
                       
                     </tr>
