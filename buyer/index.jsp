@@ -395,7 +395,7 @@ table {
             					 <button style="float: right;" class="btn btn-primary btn-sm-0" id="refresh" onClick="#"><i class="fa fa-refresh" ></i></button>
 
      <div class="container mt-0">
-    <table id="myDataTable" class="table table-striped table-bordered" style="width:100%">
+    <table id="myDataTable" class="table table-striped table-bordered responsive" style="width:100%">
     <thead>
     <tr>
    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
@@ -440,7 +440,7 @@ table {
 								 <button style="float: right;" class="btn btn-primary" onClick="window.location.reload();"><i class="fa fa-refresh" ></i></button>
 
               <div class="container mt-0">
-    <table id="myDataTable2" class="table table-striped table-bordered" style="width:100%">
+    <table id="myDataTable2" class="table table-striped table-bordered responsive" style="width:100%">
     <thead>
     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
@@ -498,7 +498,7 @@ table {
 			 					 <button style="float: right;" class="btn btn-primary" id="paymentBtn"><i class="fa fa-plus" ></i></button>
 
                   <div class="container mt-0">
-    <table id="myDataTable3" class="table table-striped table-bordered" style="width:100%">
+    <table id="myDataTable3" class="table table-striped table-bordered responsive" style="width:100%">
     <thead>
     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Payment Method</th>
