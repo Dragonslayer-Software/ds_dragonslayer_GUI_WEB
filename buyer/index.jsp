@@ -840,7 +840,7 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
               <div class="modal-content">
                 <div class="modal-header">
                 
-                  <h4 class="modal-title">Download Software</h4>
+                   <h4 class="modal-title"> <image src="websitelogo.png" width="100px" >  Download Software</h4>
                 </div>
                 <div class="modal-body">
                     <form action="#">
@@ -890,7 +890,7 @@ With over 100 founding members, LF Decentralized Trust claims to be a neutral pl
               <div class="modal-content">
                 <div class="modal-header">
                 
-                  <h4 class="modal-title">Add Payment Methods</h4>
+                   <h4 class="modal-title"> <image src="websitelogo.png" width="100px" >  Add Payment Methods</h4>
                 </div>
                 <div class="modal-body">
                     <form action="#">

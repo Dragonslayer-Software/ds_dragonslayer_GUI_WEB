@@ -85,7 +85,7 @@ String buyerName = request.getParameter("buyerName");
         </li>
        
         <li class="nav-item">
-          <a class="nav-link " href="../pages/sign-in.jsp">
+          <a class="nav-link " href="../../buyer/pages/sign-in.jsp">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-collection text-info text-sm opacity-10"></i>
             </div>
